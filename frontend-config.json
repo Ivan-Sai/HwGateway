@@ -1,0 +1,8 @@
+{
+  "service": {
+    "name": "frontend",
+    "address": "localhost",
+    "port": 3050,
+    "tags": ["frontend"]
+  }
+}
