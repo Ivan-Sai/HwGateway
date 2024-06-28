@@ -15,12 +15,6 @@ spring:
     name: gateway
   config:
     import: optional:consul:/
-  cloud:
-    consul:
-      host: consul
-      port: 8500
-      discovery:
-        health-check-path: /health
     gateway:
       routes:
         - id: hw2
@@ -36,8 +30,11 @@ spring:
           predicates:
             - Path=/**
 
-  r2dbc:
-    url: "r2dbc:h2:mem:///gwsdb"
+  datasource:
+    url: jdbc:postgresql://dpg-cpunm8aj1k6c738e7fmg-a.frankfurt-postgres.render.com/db_8c8t
+    username: user
+    password: 8p4EpesaV3FD8935N9EbKcMIW0DLRhk3
+    driver-class-name: org.postgresql.Driver
   sql:
     init:
       mode: always
