@@ -13,12 +13,16 @@ oauth:
 spring:
   application:
     name: gateway
-  config:
-    import: optional:consul:/
+  cloud:
+    consul:
+      config:
+        enabled: false
+      discovery:
+        enabled: false
     gateway:
       routes:
         - id: hw2
-          uri: lb://hw2
+          uri: https://profitsofthw2-spne32jrqq-lm.a.run.app
           predicates:
             - Path=/api/book/**,/api/author/**
         - id: gateway
@@ -26,7 +30,7 @@ spring:
           predicates:
             - Path=/oauth/**
         - id: frontend
-          uri: lb://frontend
+          uri: https://master.dgu7m57sa2t9p.amplifyapp.com/
           predicates:
             - Path=/**
 
